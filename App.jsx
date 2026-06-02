@@ -64,7 +64,7 @@ export default function App() {
           </h1>
       
           <p style={styles.subtitle}>
-            REAL-TIME ELECTORAL MONITORING SYSTEM
+            SISTEMA DE MONITOREO / DETECCIÓN DE FRAUDE ELECTORAL EN TIEMPO REAL
           </p>
       
           <div style={styles.dashboard}>
@@ -98,31 +98,31 @@ export default function App() {
                 >
       
                   <h2 style={styles.tableTitle}>
-                    TABLE #{table.table_id}
+                    TABLA #{table.table_id}
                   </h2>
       
                   <p style={styles.text}>
-                    TOTAL VOTES: {totalVotes}
+                    TOTAL VOTOS: {totalVotes}
                   </p>
       
                   <p style={styles.text}>
-                    LEGAL LIMIT: {limit}
+                    LIMITE LEGAL: {limit}
                   </p>
       
                   <p style={styles.text}>
-                    STATUS:
+                    ESTADO:
                   </p>
       
                   {fraud ? (
       
                     <p style={styles.alert}>
-                      ⚠ ELECTORAL FRAUD DETECTED
+                      ⚠ FRAUDE ELECTORAL DETECTADO
                     </p>
       
                   ) : (
       
                     <p style={styles.statusSafe}>
-                      ✔ TABLE VERIFIED
+                      ✔ TABLA VERIFICADA
                     </p>
       
                   )}
@@ -139,7 +139,7 @@ export default function App() {
               style={styles.button}
               onClick={runAudit}
             >
-              [ RUN FORENSIC AUDIT ]
+               RUN FORENSIC AUDIT
             </button>
       
           </div>
