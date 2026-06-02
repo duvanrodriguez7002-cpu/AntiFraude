@@ -8,7 +8,7 @@ const supabase = createClient(
   supabaseKey
 )
 
-describe('E-14 FORENSIC AUDIT', () => {
+describe('E-14 FORENSIC ENGINE', () => {
 
   test('Detect fraudulent voting tables', async () => {
 
@@ -37,8 +37,25 @@ describe('E-14 FORENSIC AUDIT', () => {
       )
     })
 
-    console.log('FRAUD DETECTED:')
-    console.log(fraudulentTables)
+    console.log('\nFRAUD DETECTED:\n')
+
+    console.table(
+      fraudulentTables.map((table) => {
+    
+        const totalVotes =
+          table.candidate_a_votes +
+          table.candidate_b_votes +
+          table.blank_votes +
+          table.null_votes
+    
+        return {
+          mesa: table.table_id,
+          total_votos: totalVotes,
+          limite_legal: table.polling_tables.registered_voters,
+          fraude: totalVotes > table.polling_tables.registered_voters
+        }
+      })
+    )
 
     expect(fraudulentTables.length).toBeGreaterThan(0)
   })
